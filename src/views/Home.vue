@@ -1,32 +1,37 @@
 <template>
-  <div class="home-wrap">
-    <v-toolbar
-      color="primary"
+  <div class="test">
+    <v-parallax
       light
-      extended
-      flat
-      src="../../public/pepe.jpg"
-      extension-height="150px"
+      src="../../public/landing.jpg"
+      style="padding: 0;"
+      height="800"
     >
-    </v-toolbar>
-    <v-card class="mx-auto"
-      max-width="700"
-      style="margin-top: -32px;">
-      <v-toolbar flat style="display: flex; align-items: center; justify-content: center;">
-        <v-btn icon>
-          <v-icon>mdi-magnify</v-icon>
-        </v-btn>
-
-        <v-text-field v-model="search" clearable style="width: 500px;margin-top: 15px;">
-
-        </v-text-field>
-
-        <v-btn icon>
-          <v-icon>mdi-apps</v-icon>
-        </v-btn>
-      </v-toolbar>
-    </v-card>
-
+    <v-row
+      align="center"
+      justify="center"
+    >
+      <v-col
+        class="text-center"
+        cols="12"
+        align-self="center"
+      >
+        <h1 class="text-h4 font-weight-thin mb-4">
+          Otaku Shop
+        </h1>
+        <h4 class="subheading">
+          BE DIFFERENT
+        </h4>
+      </v-col>
+      </v-row>
+    </v-parallax>
+    <div class="filler"></div>
+    <div class="filler"></div>
+    <div class="filler"></div>
+    <div class="filler"></div>
+    <div class="filler"></div>
+    <div class="filler"></div>
+    <div class="filler"></div>
+    <div class="filler"></div>
   </div>
 </template>
 
@@ -40,3 +45,15 @@ import Vue from 'vue'
     },
   })
 </script>
+
+<style lang="scss">
+.container{
+  padding: 0;
+  margin: 0;
+}
+.filler{
+  height: 200px;
+  width: 200px;
+  background-color: chocolate;
+}
+</style>
