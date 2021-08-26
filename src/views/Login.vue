@@ -175,7 +175,6 @@
                         @click:close="remove(item)"
                     >
                         <strong>{{ item }}</strong>&nbsp;
-                        <span>(interest)</span>
                     </v-chip>
                 </template>
             </v-combobox>
