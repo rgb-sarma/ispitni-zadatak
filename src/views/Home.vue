@@ -24,24 +24,31 @@
       </v-col>
       </v-row>
     </v-parallax>
-    <div class="filler"></div>
-    <div class="filler"></div>
-    <div class="filler"></div>
-    <div class="filler"></div>
-    <div class="filler"></div>
-    <div class="filler"></div>
-    <div class="filler"></div>
-    <div class="filler"></div>
+    <div class="product-wrap">
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+    
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import Product from '../components/Product.vue'
 
   export default Vue.extend({
     name: 'Home',
-
+    computed: {
+    },
     components: {
+      Product
+    },
+    methods: {
     },
   })
 </script>
@@ -50,6 +57,12 @@ import Vue from 'vue'
 .container{
   padding: 0;
   margin: 0;
+}
+
+.product-wrap{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .filler{
   height: 200px;

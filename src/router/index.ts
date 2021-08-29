@@ -13,12 +13,27 @@ const routes: Array<RouteConfig> = [
   {
     path: '/profile',
     name: 'Profile',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Profile.vue')
+    component: () => import(/* webpackChunkName: "profile" */ '../views/Profile.vue')
   },
   {
     path: '/login',
     name: 'Login',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Login.vue')
+    component: () => import(/* webpackChunkName: "login" */ '../views/Login.vue')
+  },
+  {
+    path: '/cart',
+    name: 'Cart',
+    component: () => import(/* webpackChunkName: "cart" */ '../views/Cart.vue')
+  },
+  {
+    path: '/items',
+    name: 'Items',
+    component: () => import(/* webpackChunkName: "items" */ '../views/Items.vue')
+  },
+  {
+    path: '/itempage',
+    name: 'ItemPage',
+    component: () => import(/* webpackChunkName: "itempage" */ '../views/ItemPage.vue')
   }
 ]
 

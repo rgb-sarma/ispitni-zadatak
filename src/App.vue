@@ -1,13 +1,11 @@
 <template>
   <v-app dark>
-    <!-- <v-navigation-drawer app temporary>
-      
-    </v-navigation-drawer> -->
-
+    <!-- Nav Start -->
     <v-app-bar app dark>
-      <v-btn @click="toHome">Logo</v-btn>
+      <v-btn @click="toHome" class="logoFont" dark plain text>OTAKU SHOP</v-btn>
       <v-spacer></v-spacer>
       <v-btn text elevation="0">SHOP EVERYTHING</v-btn>
+      <!-- Collections Dropdown Start -->
       <v-menu open-on-hover offset-y>
         <template v-slot:activator="{ on, attrs}">
           <v-btn v-bind="attrs" v-on="on" text elevation="0">COLLECTIONS  <v-icon>mdi-chevron-down</v-icon></v-btn>
@@ -30,6 +28,9 @@
           </v-list-item>
         </v-list>
       </v-menu>
+      <!-- Collections Dropdown End -->
+
+      <!-- Tops Dropdown Start -->
       <v-menu open-on-hover offset-y>
         <template v-slot:activator="{ on, attrs}">
           <v-btn v-bind="attrs" v-on="on" text elevation="0">TOPS <v-icon>mdi-chevron-down</v-icon></v-btn>
@@ -52,8 +53,12 @@
           </v-list-item>
         </v-list>
       </v-menu>
+      <!-- Tops Dropdown End -->
+
       <v-btn text elevation="0">PANTS</v-btn>
       <v-btn text elevation="0">MASKS</v-btn>
+
+      <!-- Accessories Dropdown Start -->
       <v-menu open-on-hover offset-y>
         <template v-slot:activator="{ on, attrs}">
           <v-btn v-bind="attrs" v-on="on" text elevation="0">ACCESSORIES <v-icon>mdi-chevron-down</v-icon></v-btn>
@@ -67,23 +72,26 @@
           </v-list-item>
         </v-list>
       </v-menu>
+      <!-- Accessories Dropdown End -->
+
       <v-btn text elevation="0">ART</v-btn>
       
       <v-spacer></v-spacer>
 
-      <v-btn :class="{hide: !isLoggedIn}" fab text><v-icon>mdi-cart-variant</v-icon></v-btn>
+      <v-badge :content="cart.length" overlap offset-y="25" offset-x="25" color="error">
+        <v-btn :class="{hide: !isLoggedIn}" @click="toCart" fab text><v-icon>mdi-cart-variant</v-icon></v-btn>
+      </v-badge>
+      <!-- <v-btn :class="{hide: !isLoggedIn}" fab text><v-icon>mdi-cart-variant</v-icon></v-btn> -->
       <v-btn :class="{hide: !isLoggedIn}" @click="toProfile" fab text><v-icon>mdi-account-cowboy-hat</v-icon></v-btn>
       <v-btn @click="isLoggedIn = !isLoggedIn" fab text><v-icon>mdi-magnify</v-icon></v-btn>
       
     </v-app-bar>
+    <!-- Nav End -->
 
-    <!-- Sizes your content based upon application components -->
     <v-main>
 
-      <!-- Provides the application the proper gutter -->
       <v-container fluid class="align-self-center">
-
-        <!-- If using vue-router -->
+        <!-- Using vue-router -->
         <router-view></router-view>
       </v-container>
     </v-main>
@@ -100,6 +108,7 @@ import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.min.css'
 // import 'vue-material/dist/theme/default.css'
 import 'vue-material/dist/theme/default-dark.css'
+import {mapState} from 'vuex'
 
 Vue.use(VueMaterial)
 
@@ -108,8 +117,11 @@ export default Vue.extend({
     return {
       drawer: false,
       group: null,
-      isLoggedIn: true
+      cartItems: [],
     }
+  },
+  computed: {
+    ...mapState(['cart', 'isLoggedIn'])
   },
   watch: {
     group(){
@@ -125,6 +137,13 @@ export default Vue.extend({
     },
     toHome(){
       this.$router.push('/')
+    },
+    toCart(){
+      this.$router.push('/cart')
+    },
+    add(){
+      console.log('stuff');
+      this.cartItems.push("Bananan")
     }
   },
 })
@@ -134,5 +153,8 @@ export default Vue.extend({
 .hide{
   opacity: 0;
   pointer-events: none;
+}
+.logoFont{
+  font-family: 'Gloria Hallelujah', cursive;
 }
 </style>

@@ -126,7 +126,7 @@ export default Vue.extend({
             fat: '3',
             carbs: 'Beogradska 1, Beograd',
             protein: 15678,
-            iron: 3 + ' days',
+            iron: ' Arrived',
           },
           {
             name: '#870356',
@@ -147,7 +147,7 @@ export default Vue.extend({
           
         ],
         chips: [
-          'Art', 'Kebab', 'Pizza', 'Gyros', 'Sushi'
+          'Art', 'Hoodie', 'Colorful'
         ]
     }
   },
@@ -161,13 +161,13 @@ export default Vue.extend({
     getColor(val){
       switch (val) {
         case 'Delivered':
-          return 'green'
+          return 'success'
         
         case 'In Progress':
           return 'blue'
         
         case 'Canceled':
-          return 'red'
+          return 'error'
         
       }
     }
